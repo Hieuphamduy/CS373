@@ -89,17 +89,12 @@ int main (int argc, char*argv[]){
 	}	
 	myfile.close();
 	str = argv[2];
-	cout << str << endl;
-	int limit = stoi(argv[3]);/*
-	cin >> str;
-	cin >> limit;
-	cin >> limit;*/
+	int limit = stoi(argv[3]);
 	int indStr = str.length();
 	int i, j, k;
 	State* currentState = new State();
 	Arrow* matchArrow = new Arrow();
 	currentState = start;
-	for(i = 0; i < 10; i++) list[i] -> printState();
 	k = 0;
 	i = 0;
 	while((k < indStr) && (currentState != accept) && (currentState != reject) && (i < limit)){
