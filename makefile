@@ -1,10 +1,8 @@
-all:	main
+pham_p1:	pham_p1.o
+	g++ pham_p1.o -o pham_p1.exe
 
-main:	main.o
-	g++ main.o -o main.exe
-
-main.o: main.cpp
-	g++ -c main.cpp
+pham_p1.o:	pham_p1.cpp
+	g++ -c pham_p1.cpp
 
 clean:	
-	rm -f *.o main.exe
+	rm -f *.o pham_p1.exe

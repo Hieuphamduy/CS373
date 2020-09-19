@@ -18,7 +18,7 @@ struct Arrow{
 };
 struct  State{
 	int state, numArrow;
-	string type = "Quit";
+	string type = "quit";
 	struct Arrow* arrowOut[1000]; 
 	void addArrow(char in, char out, char dir, int next){
 		arrowOut[numArrow] = {new Arrow()};
@@ -52,8 +52,6 @@ struct  State{
 int main (int argc, char*argv[]){
 	State* list[1001];
 	State* start = new State();
-       	State* accept = new State();
-	State* reject = new State();;
 	State* temp;
 	for(int i = 0; i < 1001; ++i){
 		temp = new State();
@@ -74,8 +72,6 @@ int main (int argc, char*argv[]){
 				myfile >> t;
 				list[current] -> type = t;
 				if(t == "start") start = list[current];
-				if(t == "accept") accept = list[current];
-				if(t == "reject") reject = list[current];
 			}
 			if(cmd == "transition"){
 				myfile >> current;
@@ -97,14 +93,14 @@ int main (int argc, char*argv[]){
 	currentState = start;
 	k = 0;
 	i = 0;
-	while((k < indStr) && (currentState != accept) && (currentState != reject) && (i < limit)){
+	while((k < indStr) && ((currentState -> type)!= "accept") && ((currentState -> type) != "reject") && (i < limit)){
 		++i;
-		cout << (currentState -> state) << " -> ";
+		cout << (currentState -> state) << "->";
 		matchArrow = currentState -> searchArrow(str[k]);
 		str[k] = matchArrow -> output;
 		if(matchArrow -> direction == 'L') --k;
 		if(matchArrow -> direction == 'R') ++k;
 		currentState = list[matchArrow -> nextState];
 	}
-	cout << (currentState -> state) << "	" << (currentState -> type) << endl;
+	cout << (currentState -> state) << " " << (currentState -> type) << endl;
 }
