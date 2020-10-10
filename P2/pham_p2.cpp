@@ -18,7 +18,7 @@ int main( int argc, char* argv[]){
 	string input, side;
 	side = argv[1];
 	input = argv[2];
-	Gate* current = new Gate();	
+	Gate* current;	
 	int count = input.length();
 	int index ;
 	cout << side;
@@ -107,5 +107,8 @@ int main( int argc, char* argv[]){
 	else if(current == gate[6]) cout << 'D';
 	else if(current == gate[7]) cout << 'E';
 	cout << endl;
+	for(int i = 0; i < 8; ++i){
+		delete gate[i];
+	}
 	return 0;
 }
