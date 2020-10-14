@@ -99,9 +99,9 @@ int main( int argc, char* argv[]){
 		for(int k = 0; k < 4; ++k){
 			side[k] = gate[k] -> dir;
 		}
-		cout << " -> " << side;
+		cout << "->" << side;
 	}
-	cout << '\t';
+	cout << ' ';
 	if(current == gate[4]) cout << 'B';
 	else if(current == gate[5]) cout << 'C';
 	else if(current == gate[6]) cout << 'D';
